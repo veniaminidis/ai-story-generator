@@ -1,0 +1,60 @@
+.featured {
+    display: block;
+    padding-left: calc(15% + 20px);
+    padding-right: calc(15% + 20px);
+    margin-top: 100px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items in a row */
+    gap: 20px; /* Gap between grid items */
+    max-width: 100%; /* Set a maximum width for the grid */
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.card-container {
+    padding: 20px 0;
+    overflow: hidden; /* Hide any overflow from the container */
+}
+
+.card-scroll {
+    display: flex;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable scroll snapping */
+    -webkit-overflow-scrolling: touch; /* For iOS smooth scrolling */
+    /* Hide the horizontal scrollbar */
+    width: 100%; /* Use full width of container */
+    scroll-behavior: smooth; /* Enable smooth scrolling behavior */    
+}
+
+@media (max-width: 1500px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items in a row for smaller screens */
+        
+    }
+    .featured {        
+        padding-left: calc(10% + 20px);
+        padding-right: calc(10% + 20px);
+    }
+    
+    @media (max-width: 768px) {
+        .container {
+            /* grid-template-columns: repeat(1, 1fr); 1 item in a row for even smaller screens */
+            display: none;
+        }
+        .featured {            
+            padding-left: calc(5% + 20px);
+            padding-right: calc(5% + 20px);
+        }
+    }
+}
+@media (min-width: 768px) {
+    .card-container {
+        display: none;
+    }
+} 

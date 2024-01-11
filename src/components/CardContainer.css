@@ -1,0 +1,45 @@
+/* OLDnpm audit fixCard container styles */
+.OLDcard-container {
+    display: flex;
+    overflow-x: auto; /* Use 'auto' instead of 'scroll' for smoother scrolling */
+    padding: 20px 0;
+    /* Hide the horizontal scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.OLDard-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Card container styles */
+.OLDcard-container {
+    padding: 20px 0;
+}
+
+.OLDcard-scroll {
+    display: flex;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    /* Add styles as needed */
+}
+
+/* Card container styles */
+.card-container {
+    padding: 20px 0;
+    overflow: hidden; /* Hide any overflow from the container */
+}
+
+.card-scroll {
+    display: flex;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable scroll snapping */
+    -webkit-overflow-scrolling: touch; /* For iOS smooth scrolling */
+    /* Hide the horizontal scrollbar */
+    width: 100%; /* Use full width of container */
+    scroll-behavior: smooth; /* Enable smooth scrolling behavior */    
+}
+
+.featured {
+    padding-left: 20%;
+    padding-right: 20%;
+}

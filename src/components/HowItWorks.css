@@ -1,0 +1,273 @@
+
+/* .off {
+    display: none;
+} */
+
+.imgs a{
+    /* position: relative; */
+    justify-content: flex-end;
+    flex: 1; /* Allow the text container to grow or shrink */
+    padding-right: 10%; /* Add padding for spacing */
+    display: flex;
+    align-items: center;
+}
+
+.imgs img a{
+    /* height: 300px; */
+    opacity: 0;
+    /* animation-delay: 0.3s; */
+    animation-fill-mode: forwards;
+    /* position: absolute; */
+    /* left: 0;
+    right: 0; */
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    
+}
+/* .bounce.imgs img.on {
+    animation-delay: 0.3s;
+    animation-name: cd-bounce-left;
+    animation-duration: 0.5s;
+}
+
+.bounce.imgs img.off {
+    animation-name: cd-bounce-right;
+    animation-duration: 0.5s;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15%;
+    padding-right: 15%;
+} */
+
+ul {
+    /* list-style: none; */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+/* .bullets {
+    flex: 1;
+    padding-left: 10%;
+}
+
+.selected::before {
+    content: "\2022";
+    color: blue;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    font-size: 50px;
+}
+.selected {
+    color: black;
+    font-size: 24px;
+}
+
+ul li::before {
+    content: "\2022";
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    font-size: 50px;
+}
+
+
+li {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+@keyframes cd-bounce-left {
+    0% {
+        opacity: .2;
+        transform: translateX(-200px);
+    }
+    60% {
+        opacity: .7;
+        transform: translateX(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}    
+@keyframes cd-bounce-right {
+    100% {
+        opacity: .2;
+        transform: translateX(+200px);
+        display: none;
+    }
+    40% {
+        opacity: .7;
+        transform: translateX(15px);
+    }
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}   */
+
+.image-list-section {
+    display: flex;
+}
+
+.image-container {
+    flex: 1;
+    /* Add styles for the image */
+    /* Apply CSS animations here */
+}
+
+.bullet-list {
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+}
+
+.bullet-list li {
+    cursor: pointer;
+    padding: 5px;
+    transition: background-color 0.3s ease; /* Example animation */
+}
+
+.bullet-list li.selected {
+    /*background-color: #ffc107;  Highlight color */
+}
+
+
+/* Add this CSS in your stylesheet */
+
+.image-container img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-container img.fade-in {
+    opacity: 1;
+}
+
+/* Add this CSS in your stylesheet */
+
+.image-list-section {
+    display: flex; /* Use Flexbox to arrange items */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Add space between items */
+}
+
+.image-container {
+    flex: 1; /* Allow the image to take up available space */
+    padding: 20px; /* Adjust padding as needed */
+    text-align: center; /* Center image and text */
+}
+
+.image-container img {
+    max-width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Adjust the maximum height as needed */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Add transition for opacity and transform */
+}
+
+ul li::before {
+    content: "\2022";
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    font-size: 30px;
+}
+
+
+li {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.bullet-list {
+    flex: 1; /* Allow the list to take up available space */
+    padding: 20px; /* Adjust padding as needed */
+    list-style: none; /* Remove default list styles */
+}
+
+.bullet-list li {
+    cursor: pointer;
+    padding: 10px 0;
+    transition: background-color 0.3s ease; /* Add a background color transition */
+}
+
+.bullet-list li:hover {
+    background-color: #eee; /* Highlight on hover */
+}
+
+.selected::before {
+    content: "\2022";
+    color: blue;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    font-size: 50px;
+}
+.selected {
+    color: black;
+    font-size: 24px;
+}
+
+.selected {
+    color: white; /* Text color for selected item */
+    color: black;
+    font-size: 24px;
+}
+
+/* Add a media query for mobile screens */
+@media (max-width: 768px) {
+    .image-list-section {
+        flex-direction: column; /* Switch to a column layout */
+        text-align: center; /* Center text */
+    }
+
+    .image-container {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .image-container img {
+        max-height: 200px; /* Adjust image height for smaller screens */
+    }
+
+    .bullet-list {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+}
+
+
+/* Timer Bar Container */
+.timer {
+    height: 10px; /* Set the height of the timer bar container */
+    background-color: #ddd; /* Set the background color */
+    border-radius: 5px; /* Add some rounded corners */
+    margin-top: 10px; /* Adjust the margin to your preference */
+    position: relative; /* Ensure the child elements are positioned relative to this container */
+  }
+  
+  /* Timer Bar (Progress Bar) */
+  .timer-bar {
+    height: 100%; /* Fill the entire height of the container */
+    width: 0; /* Start with zero width, it will expand as the timer progresses */
+    background-color: #4caf50; /* Set the color of the timer bar */
+    border-radius: 5px; /* Add rounded corners to the timer bar */
+    transition: width 0.1s linear; /* Add a transition for smooth animation with 3 seconds duration */
+  }
+  
+
