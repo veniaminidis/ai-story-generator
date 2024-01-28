@@ -4,23 +4,26 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #333; /* Header background color */
+    background-color: #201627 ; /* Header background color */
     height: 50px; /* Header height */
   }
   
-  .tab {
+  .tab, .active-tab {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     color: #fff; /* Tab text color */
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     transition: 0.3s; /* Transition effect for smooth color change */
+    height: 50px;
   }
   
   .active-tab {
-    background-color: #007bff; /* Active tab background color */
-    color: #fff; /* Active tab text color */
-    padding: 10px 20px;
+    background-color: #ff9300 ; /* Active tab background color ff9300 */
+    /* padding: 10px 20px; */
     border-radius: 5px; /* Optional: Add border-radius for rounded corners */
-    transition: 0.3s; /* Transition effect for smooth color change */
   }
   
   .tab:hover {

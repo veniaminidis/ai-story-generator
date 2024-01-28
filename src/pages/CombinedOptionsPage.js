@@ -2,7 +2,7 @@
 // import GenreSelection from '../components/StoryOptions/GenreSelection';
 // import CharacterCustomization from '../components/StoryOptions/CharacterCustomization';
 // import SettingChoices from '../components/StoryOptions/SettingChoices';
-// import './CombinedOptionsPage.css';
+import './CombinedOptionsPage.css';
 
 // function CombinedOptionsPage({ onGenerateStory }) {
 //     const [selectedGenre, setSelectedGenre] = useState('');
@@ -78,7 +78,7 @@ class CombinedOptionsPage extends Component {
             characterCustomization: {},
             storyPrompt: '',
             redirectToStory: null,
-            optionsTab: 1
+            optionsTab: '1'
         };
     }
     
@@ -109,23 +109,22 @@ class CombinedOptionsPage extends Component {
 
     handleGeneratePrompt = async (tab) => {
 
-        const storyPrompt = '';
+        let storyPrompt;
 
-        const {
-            selectedGenre,
-            selectedSetting,
-            selectedPlotDirection,
-            selectedTheme,
-            characterCustomization,
-            selectedQuick,
-        } = this.state;
-        
+        // const {
+        //     selectedGenre,
+        //     selectedSetting,
+        //     selectedPlotDirection,
+        //     selectedTheme,
+        //     characterCustomization,
+        //     selectedQuick,
+        // } = this.state;        
 
         if (tab === '1') {
-            // const selectedQuick = this.state;
+            const {selectedQuick} = this.state;
             // const storyPrompt = this.state.selectedQuick;
-            const storyPrompt = `
-            Create a kids story about ${selectedQuick}
+            storyPrompt = `
+            Create a kids story about ${selectedQuick}.
 
             Split the story in 5 pages or chapters. For each chapter, write a description of an image that is the most relevant. The image description should be appropriate for eficient use in image generation AI models.
             Split the images and the actual story by putting the image inside {} , the chapter title inside [] and the story inside <>.
@@ -145,7 +144,7 @@ class CombinedOptionsPage extends Component {
                 .map(([key, value]) => `${key}: ${value}`)
                 .join('\n');
     
-            const storyPrompt = `
+            storyPrompt = `
                 Create a story based on the following information:
     
                 Genre: ${selectedGenre}
@@ -175,6 +174,7 @@ class CombinedOptionsPage extends Component {
         const apiKey = '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'; // Replace with your actual API key
         const prompt = storyPrompt;//'Give me 3 words inside {}, [] and <> respectively'//storyPrompt//'Create a story about a young guy called ROdy who embarks on a ajourney to save his dragon friend'; // Use the generated story prompt
 
+        console.log(prompt);
         try {
             const generatedStory = await OpenAIAPI.generateStory(apiKey, prompt);
             this.setState({ generatedStory });
@@ -192,26 +192,40 @@ class CombinedOptionsPage extends Component {
     }
 
     handleStorySplit = (generatedStory) => {
-        const story = {
-            // {
-            //     image: 'https://neverendingstory.ai/assets/images/image08.jpg?v=eed4e7fc',
-            //     // title: '',
-            //     // content: '',
-            // }
-        };
-        // story.image = 
+        //PROHGOUMENO DEN DOULEVE KALA TO SPLIT
+        // const story = {
+        //     // {
+        //     //     image: 'https://neverendingstory.ai/assets/images/image08.jpg?v=eed4e7fc',
+        //     //     // title: '',
+        //     //     // content: '',
+        //     // }
+        // };
+        // // story.image = 
+        // // generatedStory.substring(
+        // //     generatedStory.indexOf("{") + 1, 
+        // //     generatedStory.lastIndexOf("}"));  
+        // story.title = 
         // generatedStory.substring(
-        //     generatedStory.indexOf("{") + 1, 
-        //     generatedStory.lastIndexOf("}"));  
-        story.title = 
-        generatedStory.substring(
-            generatedStory.indexOf("[") + 1, 
-            generatedStory.lastIndexOf("]"));
-        story.content = 
-        generatedStory.substring(
-            generatedStory.indexOf("<") + 1, 
-            generatedStory.lastIndexOf(">"));      
-        story.image = 'https://neverendingstory.ai/assets/images/image08.jpg?v=eed4e7fc'
+        //     generatedStory.indexOf("[") + 1, 
+        //     generatedStory.lastIndexOf("]"));
+        // story.content = 
+        // generatedStory.substring(
+        //     generatedStory.indexOf("<") + 1, 
+        //     generatedStory.lastIndexOf(">"));      
+        // story.image = 'https://neverendingstory.ai/assets/images/image08.jpg?v=eed4e7fc'
+        // this.handleStoryStorage(story);
+        // console.log(story);
+
+        const story = {
+            image: 'https://neverendingstory.ai/assets/images/image08.jpg?v=eed4e7fc',
+        };
+    
+        const titleMatch = generatedStory.match(/\[(.*?)\]/);
+        const contentMatch = generatedStory.match(/<(.*?)>/);
+    
+        story.title = titleMatch ? titleMatch[1] : '';
+        story.content = contentMatch ? contentMatch[1] : '';
+    
         this.handleStoryStorage(story);
         console.log(story);
     }
@@ -223,7 +237,7 @@ class CombinedOptionsPage extends Component {
 
     handleCallback = (childData) => {
         this.setState({ optionsTab: childData })
-    }
+    };
 
     
 
@@ -254,10 +268,10 @@ class CombinedOptionsPage extends Component {
 
 
         return (
-            <div className="App">
+            <div className="options">
 
-                <h1>Story Options</h1>
-                <p>{this.state.selectedQuick}</p>
+                <h1 className="opTitle">Story Options</h1>
+                {/* <p>{this.state.selectedQuick}</p> */}
                 <HeaderComponent parentCallback={this.handleCallback}/>
                 {displayedTab}
                 {/* <GenreSelection options={genres} onSelect={this.handleGenreSelect} />

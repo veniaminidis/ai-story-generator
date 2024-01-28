@@ -4,6 +4,7 @@ import SettingSelection from './SettingSelection';
 import PlotDirectionSelection from './PlotDirectionSelection';
 import ThemeSelection from './ThemeSelection';
 import CharacterCustomization from './CharacterCustomization';
+import './CustomStory.css';
 import HeaderComponent from './HeaderComponent';
 import OpenAIAPI from '../OpenAIAPI';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -124,7 +125,7 @@ class CustomStory extends Component {
 
 
         return (
-            <div className="App">                                                        
+            <div className="customStory">                                                        
                 <GenreSelection options={genres} onSelect={this.handleGenreSelect} />
                 <SettingSelection options={settings} onSelect={this.handleSettingSelect} />
                 <PlotDirectionSelection options={plotDirections} onSelect={this.handlePlotDirectionSelect} />

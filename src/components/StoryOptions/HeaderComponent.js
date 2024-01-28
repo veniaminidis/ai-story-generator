@@ -16,25 +16,25 @@ const HeaderComponent = (props) => {
         className={activeTab === '1' ? 'active-tab' : 'tab'}
         onClick={() => handleTabClick('1')}
       >
-        Home
+        Quick
       </div>
       <div
         className={activeTab === '2' ? 'active-tab' : 'tab'}
         onClick={() => handleTabClick('2')}
       >
-        About
+        Custom
       </div>
       <div
         className={activeTab === '3' ? 'active-tab' : 'tab'}
         onClick={() => handleTabClick('3')}
       >
-        Services
+        Anvanced
       </div>
       <div
         className={activeTab === '4' ? 'active-tab' : 'tab'}
         onClick={() => handleTabClick('4')}
       >
-        Contact
+        Random
       </div>
     </div>
   );
