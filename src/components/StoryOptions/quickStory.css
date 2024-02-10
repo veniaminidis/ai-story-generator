@@ -1,3 +1,41 @@
+.quickStoryDiv {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* height: 100%; */
+}
+
 label {
-    color: #ff9300;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.inputContainer {
+    width: 100%;
+}
+
+.quickInput {
+    display: block;
+    width: 100%;
+    /* width: 500px; */
+    height: 50px;
+    margin-top: 20px;
+    background-color: transparent;
+    border: 2px solid #ff9300;
+    border-radius: 5px;
+    outline: none;
+}
+
+.quickButton {
+    position: fixed;
+    bottom: 25px;
+    width: 90%;
+    height: 50px;
+    padding: 10px;
+    background-color: #ff9300;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }

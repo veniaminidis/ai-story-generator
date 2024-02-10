@@ -289,8 +289,8 @@ class CombinedOptionsPage extends Component {
                     </div>
                 )} */}
 
-                <button onClick={this.handleGeneratePrompt}>Generate Story Prompt</button>
-                {generatedStory && (
+                {/* <button onClick={this.handleGeneratePrompt}>Generate Story Prompt</button> */}
+                {/* {generatedStory && (
                     <div>
                         <h2>Generated Story:</h2>
                         <pre>{generatedStory}</pre>
@@ -303,7 +303,7 @@ class CombinedOptionsPage extends Component {
                             Go to Story Page
                         </Link>
                     </div>
-                )}
+                )} */}
                 
             </div>
         );

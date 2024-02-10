@@ -25,15 +25,17 @@ const QuickStory = (props) => {
     };
 
     return(
-        <div>
+        <div className="quickStoryDiv">
+            <div className="inputContainer">
             <label>Generate a story about...</label>
-            <input 
+            <input className="quickInput"
                 type="text"
                 value={customValue}
                 onChange={handleCustomInputChange}
                 placeholder="A magical cat.">                    
             </input>
-            <button onClick={handleCustomSubmit}>Submit</button>
+            </div>
+            <button className="quickButton" onClick={handleCustomSubmit}>Generate Story</button>
             {/* <p>{prompt}</p> */}
             {/* <button>
                 <span>Generate Story</span>
