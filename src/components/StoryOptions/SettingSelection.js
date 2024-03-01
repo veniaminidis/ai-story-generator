@@ -36,9 +36,9 @@ class SettingSelection extends Component {
         const { selectedOption, customValue } = this.state;
 
         return (
-            <div>
-                <p>Story setting: </p>
-                <select value={selectedOption} onChange={this.handleSelect}>
+            <div className="optionComponent">
+                <p className="optionTitle">Story setting: </p>
+                <select className="optionDropdown" value={selectedOption} onChange={this.handleSelect}>
                     <option value="">Select</option>
                     {options.map((option) => (
                         <option key={option} value={option}>

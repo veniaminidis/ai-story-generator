@@ -83,8 +83,11 @@ class CombinedOptionsPage extends Component {
     }
     
     handleQuickSelect = (quickSelection) => {
-        this.setState({ selectedQuick: quickSelection });
-        this.handleGeneratePrompt('1');
+        this.setState({ selectedQuick: quickSelection }, () => {
+            // This callback is invoked after the state has been updated
+            // console.log(this.state.selectedQuick);
+            this.handleGeneratePrompt('1');
+        });
     };
 
     handleGenreSelect = (genre) => {
@@ -175,14 +178,14 @@ class CombinedOptionsPage extends Component {
         const prompt = storyPrompt;//'Give me 3 words inside {}, [] and <> respectively'//storyPrompt//'Create a story about a young guy called ROdy who embarks on a ajourney to save his dragon friend'; // Use the generated story prompt
 
         console.log(prompt);
-        try {
-            const generatedStory = await OpenAIAPI.generateStory(apiKey, prompt);
-            this.setState({ generatedStory });
-            this.handleStorySplit(generatedStory);
+        // try {
+        //     const generatedStory = await OpenAIAPI.generateStory(apiKey, prompt);
+        //     this.setState({ generatedStory });
+        //     this.handleStorySplit(generatedStory);
             
-        } catch (error) {
-            console.error('Error generating story:', error);
-        }
+        // } catch (error) {
+        //     console.error('Error generating story:', error);
+        // }
     };
 
     handleStoryStorage = (generatedStory) => {        

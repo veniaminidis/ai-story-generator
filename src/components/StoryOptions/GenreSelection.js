@@ -40,6 +40,7 @@
 // export default GenreSelection;
 
 import React, { Component } from 'react';
+import './CustomStory.css';
 
 class GenreSelection extends Component {
     constructor(props) {
@@ -75,20 +76,20 @@ class GenreSelection extends Component {
         const { selectedOption, customValue } = this.state;
 
         return (
-            <div>
-                <p>Genre: </p>
-                <select value={selectedOption} onChange={this.handleSelect}>
+            <div className="optionComponent">
+                <p className="optionTitle">Genre: </p>
+                <select className="optionDropdown" value={selectedOption} onChange={this.handleSelect}>
                     <option value="">Select</option>
                     {options.map((option) => (
-                        <option key={option} value={option}>
+                        <option className="optionItem" key={option} value={option}>
                             {option}
                         </option>
                     ))}
-                    <option value="custom">Custom</option>
+                    <option className="optionItem" value="custom">Custom</option>
                 </select>
                 {selectedOption === 'custom' && (
                     <div>
-                        <input
+                        <input className="optionCustom"
                             type="text"
                             value={customValue}
                             onChange={this.handleCustomInputChange}

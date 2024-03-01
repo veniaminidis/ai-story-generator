@@ -12,6 +12,7 @@ const QuickStory = (props) => {
     };
 
     const handleCustomSubmit = () => {
+        // setCustomValue();
         if (customValue.trim() !== '') {
             props.onSelect(customValue);
         }
@@ -24,18 +25,26 @@ const QuickStory = (props) => {
         // `);        
     };
 
-    return(
+    // useEffect(() => {
+    //     if (customValue.trim() !== '') {
+    //         props.onSelect(customValue);
+    //     }
+    // }, [customValue, props]);
+
+    return (
         <div className="quickStoryDiv">
             <div className="inputContainer">
-            <label>Generate a story about...</label>
-            <input className="quickInput"
-                type="text"
-                value={customValue}
-                onChange={handleCustomInputChange}
-                placeholder="A magical cat.">                    
-            </input>
+                <label>Generate a story about...</label>
+                {/* <textarea className="quickInput"
+                    type="text"
+                    // value={customValue}
+                    onChange={handleCustomInputChange}
+                    placeholder="A magical cat.">
+                </textarea> */}
+                <span className="textarea" role="textbox" contentEditable></span>
             </div>
             <button className="quickButton" onClick={handleCustomSubmit}>Generate Story</button>
+            {/* <p>{customValue}</p> */}
             {/* <p>{prompt}</p> */}
             {/* <button>
                 <span>Generate Story</span>

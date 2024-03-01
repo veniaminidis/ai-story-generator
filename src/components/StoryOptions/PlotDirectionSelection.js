@@ -36,9 +36,9 @@ class PlotDirectionSelection extends Component {
         const { selectedOption, customValue } = this.state;
 
         return (
-            <div>
-                <p>Plot direction: </p>
-                <select value={selectedOption} onChange={this.handleSelect}>
+            <div className="optionComponent">
+                <p className="optionTitle">Plot direction: </p>
+                <select className="optionDropdown" value={selectedOption} onChange={this.handleSelect}>
                     <option value="">Select</option>
                     {options.map((option) => (
                         <option key={option} value={option}>

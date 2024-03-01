@@ -1,5 +1,6 @@
 .quickStoryDiv {
     padding: 25px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,14 +19,19 @@ label {
 
 .quickInput {
     display: block;
-    width: 100%;
+    width: calc(100% - 18px);
     /* width: 500px; */
-    height: 50px;
+    padding: 0 10px;
+    min-height: 50px;
     margin-top: 20px;
     background-color: transparent;
     border: 2px solid #ff9300;
     border-radius: 5px;
     outline: none;
+    font-size: 18px;
+    color: white;
+    resize: 'none';
+    overflow-y: 'hidden';
 }
 
 .quickButton {
@@ -38,4 +44,52 @@ label {
     border-radius: 5px;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+
+
+
+/* .input,
+.textarea {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1px 6px;
+} */
+
+/* .input-wrap {
+  position: relative;
+}
+.input-wrap .input {
+  position: absolute;
+  width: 100%;
+  left: 0;
+} */
+
+.textarea {
+  display: block;
+  /* width: 100%; */
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+  display: block;
+    width: calc(100% - 24px);
+    /* width: 500px; */
+    padding: 5px 10px;
+    min-height: 50px;
+    margin-top: 20px;
+    background-color: transparent;
+    border: 2px solid #ff9300;
+    border-radius: 5px;
+    outline: none;
+    font-size: 18px;
+    color: white;
+    /* resize: 'none'; */
+    /* overflow-y: 'hidden'; */
+}
+
+.textarea[contenteditable]:empty::before {
+  content: "a magical cat.";
+  color: gray;
 }
