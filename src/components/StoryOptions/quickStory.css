@@ -45,6 +45,15 @@ label {
     font-size: 1.2rem;
     font-weight: bold;
 }
+.quickButton:focus {
+  background-color: #ff9300;
+}
+.quickButton:hover {
+  background-color: #ff9300;
+}
+.quickButton:disabled {
+  background-color: gray;
+}
 
 
 

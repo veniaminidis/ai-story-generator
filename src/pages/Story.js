@@ -3,6 +3,7 @@ import StoryPage from "./StoryPage"; // Adjust the import path based on your pro
 import "./StoryPage.css"; // Import your CSS file for styling
 import { useLocation } from 'react-router-dom';
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 // class Story extends React.Component {
 //     constructor(props) {
@@ -45,6 +46,11 @@ import { useParams } from "react-router-dom";
 
 const Story = (props) => {
 
+    const [pageIndex, setPageIndex] = useState(0);
+    const [start, setStart] = useState(true);
+    const [end, setEnd] = useState(false);
+
+
     const {state} = useParams();
 
     // Retrieve stored stories from localStorage or initialize an empty array
@@ -55,9 +61,41 @@ const Story = (props) => {
 
     // Get the displayed story based on the index
     const displayedStory = storedStories[storyIndex] || props;
+    const size = Object.keys(displayedStory).length;
 
     console.log(state);
     console.log(storedStories);
+
+    const updateIndex = (btn) => {
+        console.log("Button clicked:", btn);
+        console.log("Previous page index:", pageIndex);
+        console.log(displayedStory);
+
+        if (btn === "next" && pageIndex < size - 1) {
+            setPageIndex(prevPageIndex => {
+                const newIndex = prevPageIndex + 1;
+                setStart(newIndex === 0);
+                setEnd(newIndex === size - 1);
+                return newIndex;
+            });
+            console.log("next");
+        } else if (btn === "prev" && pageIndex > 0) {
+            setPageIndex(prevPageIndex => {
+                const newIndex = prevPageIndex - 1;
+                setStart(newIndex === 0);
+                setEnd(newIndex === size - 1);
+                return newIndex;
+            });
+        }
+    
+        console.log("Updated page index:", pageIndex);
+    
+        // setStart(pageIndex === 0);
+        // setEnd(pageIndex === size - 1);
+    };
+    
+    
+    
 
     return (
         // <div>            
@@ -71,16 +109,20 @@ const Story = (props) => {
             {displayedStory && (
                 <div>
                     <div className="story-header">
-                        <img className="story-image" src={displayedStory.image} alt="Story Cover"></img>
-                        <h1 className="chapter-title">{displayedStory.title}</h1>
+                        <img className="story-image" src={displayedStory[pageIndex].image} alt="Story Cover"></img>
+                        <h1 className="chapter-title">{displayedStory[pageIndex].title}</h1>
                     </div>
                     <div className="story-content">
-                        <p className="story-text">
-                            {displayedStory.content}
-                        </p>
+                        <span className="story-text">
+                            {displayedStory[pageIndex].content}
+                            {start && (<p>start</p>)}
+                            {end && (<p>end</p>)}
+                        </span>
                     </div>
+                    {pageIndex}
                     <div className="navigation">
-                        <button className="next-chapter-button">Next Chapter</button>
+                    <button className="next-chapter-button" disabled={start} onClick={() => updateIndex("prev")}>Previous Chapter</button>
+                    <button className="next-chapter-button" disabled={end} onClick={() => updateIndex("next")}>Next Chapter</button>
                     </div>
                 </div>
             )}
