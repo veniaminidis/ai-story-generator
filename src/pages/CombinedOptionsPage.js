@@ -134,7 +134,7 @@ class CombinedOptionsPage extends Component {
             Create a kids story about ${selectedQuick}.
 
             Split the story in 5 pages or chapters. For each chapter, write a description of an image that is the most relevant. The image description should be appropriate for eficient use in image generation AI models.
-            Split the images and the actual story by putting the image inside {} , the chapter title inside [] and the story inside <>.
+            Split the images and the actual story by putting the image inside {} , the chapter title inside [] and the story inside <> and after avery chapter put a *.
 
             `;
         }
@@ -163,7 +163,7 @@ class CombinedOptionsPage extends Component {
                 ${characterInfo}
     
                 Split the story in 5 pages or chapters. For each chapter, write a description of an image that is the most relevant. The image description should be appropriate for eficient use in image generation AI models.
-                Split the images and the actual story by putting the image inside {} , the chapter title inside [] and the story inside <>.
+                Split the images and the actual story by putting the image inside {} , the chapter title inside [] and the story inside <> and after avery chapter put a *.
     
                 `;
         }
