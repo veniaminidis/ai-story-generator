@@ -3,6 +3,8 @@
 // import CharacterCustomization from '../components/StoryOptions/CharacterCustomization';
 // import SettingChoices from '../components/StoryOptions/SettingChoices';
 import './CombinedOptionsPage.css';
+import { useNavigate } from 'react-router-dom';
+import  { Navigate } from 'react-router-dom'
 
 // function CombinedOptionsPage({ onGenerateStory }) {
 //     const [selectedGenre, setSelectedGenre] = useState('');
@@ -65,6 +67,7 @@ import APIconfig from '../APIconfig.js';
 // ];
 
 const stories = JSON.parse(localStorage.getItem("stories")) || [];
+const size = Object.keys(stories).length;
 
 
 class CombinedOptionsPage extends Component {
@@ -180,43 +183,46 @@ class CombinedOptionsPage extends Component {
 
         console.log(prompt);
         console.log(apiKey);
-        this.handleStorySplit(`[Chapter 1: A Colorful Underwater Home]
-
-        {Image: An underwater scene showing a myriad of vibrant, colorful corals, seaweeds, and other marine life. In the center, a small orange fish with big blue eyes and a smiling face is waving its tiny fins in greeting. Various creatures, like a turtle, an octopus, and a seahorse are playfully swimming around. Sunlight pierces through the clear blue water, casting magical rays all around.}
-        
-        < In the heart of the blue ocean, amidst clusters of corals and dense seaweeds, lived a happy little fish named Finley. He had big, curious blue eyes, an orange glossy scale that sparkled under the sun, and an infectious smile. Finley loved his beautiful, colorful underwater home and made friends with everyone, from the slow-moving turtle to the playful seahorse. >
-        
-        *[Chapter 2: The Forgotten Cave]
-        
-        {Image: A mysterious underwater cave obscured by dark shadows. It's entrance gaping wide open, into what seems like an endless black tunnel. Intricate stalactites hanging down from the roof create an air of mystery. Finley is hesitantly hovering near the entrance, his eyes wide with both excitement and fear.}
-        
-        < One day, during a game of hide and seek, Finley stumbled upon a forgotten cave. It was a deep, dark tunnel that looked quite scary. But Finley, being the adventurous fish he was, decided to swim in and explore, his tiny heart throbbing with both fear and thrill. >
-        
-        *[Chapter 3: The Magical Pearl]
-        
-        {Image: An enormous, glowing pearl placed atop a golden pedestal in the middle of the cave. The pearl is emitting a warm, soft glow, illuminating the surrounding area. It's reflection bouncing off Finley’s wide, astonished eyes. He is approaching it cautiously, his mouth slightly open in wonder.}
-        
-        < As Finley swam deeper into the cave, his blue eyes landed on something magnificent. It was a magical, glowing pearl. The pearl was huge and it shone so bright that it lit up the entire cave. Finley was amazed and couldn't help but approach this mysterious, beautiful object. >
-        
-        *[Chapter 4: The Pearl's Mighty Power]
-        
-        {Image: Bright beams of light exploding out of the pearl, spreading an array of mesmerizing colors across the cave. Shocked, Finley hides behind a stalagmite, his eyes peering from behind it. The seabed around the pedestal is starting to bloom with colorful exotic flowers and plants.}
-        
-        < The second Finley touched the pearl, it began to pulsate, emitting bright beams of light. Scared yet fascinated, Finley hid behind a stalagmite to watch. As if responding to the pearl's power, the cold barren seabed around the pedestal began to blossom with the most beautiful, colorful exotic flowers Finley had ever seen. >
-        
-        *[Chapter 5: The Blooming Ocean]
-        
-        {Image: An overflowing, extravagant feast of vividly colored coral formations, exotic aquatic plants, and happy marine animals swimming amidst them. Finley, with the glowing pearl gently held in his fins, emerges from the cave existence, his eyes sparkling as he watches the miraculous transformation. Behind him, the whole underwater world is now blooming.}
-        
-        < When Finley brought the magical pearl out of the cave, the whole ocean began to come alive. The corals seemed more vibrant, the flowers bloomed bigger, the seaweeds swayed happier. And amidst all this, the little smiling fish, Finley, felt immense joy. From that day onwards, Finley's life became more enchanting, filled with adventures and color; every day was a new magical journey. Thus, our little fish found the true magic of brave exploration in the heart of the blue ocean.>`);
         // try {
-        //     const generatedStory = await OpenAIAPI.generateStory(apiKey, prompt);
-        //     this.setState({ generatedStory });
-        //     this.handleStorySplit(generatedStory);
+        // const generatedStory  = `[Chapter 1: A Colorful Underwater Home]
 
-        // } catch (error) {
-        //     console.error('Error generating story:', error);
-        // }
+        // {Image: An underwater scene showing a myriad of vibrant, colorful corals, seaweeds, and other marine life. In the center, a small orange fish with big blue eyes and a smiling face is waving its tiny fins in greeting. Various creatures, like a turtle, an octopus, and a seahorse are playfully swimming around. Sunlight pierces through the clear blue water, casting magical rays all around.}
+        
+        // < In the heart of the blue ocean, amidst clusters of corals and dense seaweeds, lived a happy little fish named Finley. He had big, curious blue eyes, an orange glossy scale that sparkled under the sun, and an infectious smile. Finley loved his beautiful, colorful underwater home and made friends with everyone, from the slow-moving turtle to the playful seahorse. >
+        
+        // *[Chapter 2: The Forgotten Cave]
+        
+        // {Image: A mysterious underwater cave obscured by dark shadows. It's entrance gaping wide open, into what seems like an endless black tunnel. Intricate stalactites hanging down from the roof create an air of mystery. Finley is hesitantly hovering near the entrance, his eyes wide with both excitement and fear.}
+        
+        // < One day, during a game of hide and seek, Finley stumbled upon a forgotten cave. It was a deep, dark tunnel that looked quite scary. But Finley, being the adventurous fish he was, decided to swim in and explore, his tiny heart throbbing with both fear and thrill. >
+        
+        // *[Chapter 3: The Magical Pearl]
+        
+        // {Image: An enormous, glowing pearl placed atop a golden pedestal in the middle of the cave. The pearl is emitting a warm, soft glow, illuminating the surrounding area. It's reflection bouncing off Finley’s wide, astonished eyes. He is approaching it cautiously, his mouth slightly open in wonder.}
+        
+        // < As Finley swam deeper into the cave, his blue eyes landed on something magnificent. It was a magical, glowing pearl. The pearl was huge and it shone so bright that it lit up the entire cave. Finley was amazed and couldn't help but approach this mysterious, beautiful object. >
+        
+        // *[Chapter 4: The Pearl's Mighty Power]
+        
+        // {Image: Bright beams of light exploding out of the pearl, spreading an array of mesmerizing colors across the cave. Shocked, Finley hides behind a stalagmite, his eyes peering from behind it. The seabed around the pedestal is starting to bloom with colorful exotic flowers and plants.}
+        
+        // < The second Finley touched the pearl, it began to pulsate, emitting bright beams of light. Scared yet fascinated, Finley hid behind a stalagmite to watch. As if responding to the pearl's power, the cold barren seabed around the pedestal began to blossom with the most beautiful, colorful exotic flowers Finley had ever seen. >
+        
+        // *[Chapter 5: The Blooming Ocean]
+        
+        // {Image: An overflowing, extravagant feast of vividly colored coral formations, exotic aquatic plants, and happy marine animals swimming amidst them. Finley, with the glowing pearl gently held in his fins, emerges from the cave existence, his eyes sparkling as he watches the miraculous transformation. Behind him, the whole underwater world is now blooming.}
+        
+        // < When Finley brought the magical pearl out of the cave, the whole ocean began to come alive. The corals seemed more vibrant, the flowers bloomed bigger, the seaweeds swayed happier. And amidst all this, the little smiling fish, Finley, felt immense joy. From that day onwards, Finley's life became more enchanting, filled with adventures and color; every day was a new magical journey. Thus, our little fish found the true magic of brave exploration in the heart of the blue ocean.>`
+        try {
+            const generatedStory = await OpenAIAPI.generateStory(apiKey, prompt);
+            this.setState({ generatedStory });
+            this.handleStorySplit(generatedStory);
+            // console.log(size);
+            this.handleRedirect(size);
+
+        } catch (error) {
+            console.error('Error generating story:', error);
+        }
     };
 
     handleStoryStorage = (generatedStory) => {
@@ -255,7 +261,10 @@ class CombinedOptionsPage extends Component {
 
     handleRedirect = (storyId) => {
         this.setState({ redirectToStory: storyId });
-        console.log('redir');
+        console.log('redir' + storyId);
+        // Redirect to the story page with the corresponding storyId
+        // const navigate = useNavigate();
+        // navigate.push(`/story/${storyId}`); // Assuming '/story/:storyId' is the route for story pages
     };
 
     handleCallback = (childData) => {
@@ -313,6 +322,10 @@ class CombinedOptionsPage extends Component {
                 )} */}
 
                 {/* <button onClick={this.handleGeneratePrompt}>Generate Story Prompt</button> */}
+                {generatedStory && (
+                    <Navigate to={"/home/story/" + (size)}  />
+                )
+                }
                 {/* {generatedStory && (
                     <div>
                         <h2>Generated Story:</h2>

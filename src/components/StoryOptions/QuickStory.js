@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import './quickStory.css';
+import './quickStory.scss';
 
 const QuickStory = (props) => {
     const [customValue, setCustomValue] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleCustomInputChange = (e) => {
         setCustomValue(e.target.textContent);
@@ -12,11 +13,17 @@ const QuickStory = (props) => {
         // setCustomValue();
         if (customValue.trim() !== '') {
             props.onSelect(customValue);
+            setLoading(true);
         }      
     };
 
     return (
         <div className="quickStoryDiv">
+            {loading &&
+            <div className="loading">
+                <img src="/imgs/dinoGif.gif"></img>
+            </div>
+            }
             <div className="inputContainer">
                 <label>Generate a story about...</label>
                 {/* <textarea className="quickInput"

@@ -8,6 +8,28 @@
     /* height: 100%; */
 }
 
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(3px);
+  z-index: 10;
+
+  img {
+    position: absolute;
+    bottom: calc(50% - 150px);
+    left: calc(50% - 150px);
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(black 0px 0px 20px);
+  }
+}
+.loading:disabled {
+  display: none;
+}
+
 label {
     color: white;
     font-size: 1.5rem;
