@@ -3,7 +3,6 @@
 // import CharacterCustomization from '../components/StoryOptions/CharacterCustomization';
 // import SettingChoices from '../components/StoryOptions/SettingChoices';
 import './CombinedOptionsPage.css';
-import { useNavigate } from 'react-router-dom';
 import  { Navigate } from 'react-router-dom'
 
 // function CombinedOptionsPage({ onGenerateStory }) {
@@ -50,7 +49,6 @@ import OpenAIAPI from '../components/OpenAIAPI';
 import Story from './Story';
 import CustomStory from '../components/StoryOptions/CustomStory';
 import { Routes, Route, Link } from 'react-router-dom';
-import APIconfig from '../APIconfig.js';
 
 // const stories = [
 //     {
@@ -178,7 +176,7 @@ class CombinedOptionsPage extends Component {
 
         this.setState({ storyPrompt });
 
-        const apiKey = APIconfig.apiKey; // Replace with your actual API key
+        const apiKey = process.env.REACT_APP_API_KEY; // Replace with your actual API key
         const prompt = storyPrompt;//'Give me 3 words inside {}, [] and <> respectively'//storyPrompt//'Create a story about a young guy called ROdy who embarks on a ajourney to save his dragon friend'; // Use the generated story prompt
 
         console.log(prompt);

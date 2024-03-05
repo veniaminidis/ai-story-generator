@@ -7,9 +7,9 @@ export const Routing = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/home/options" element={<CombinedOptionsPage />} />
-                <Route path="/home/story/:state" element={<Story />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/options" element={<CombinedOptionsPage />} />
+                <Route path="/story/:state" element={<Story />} />
             </Routes>
         </Router>
     )
