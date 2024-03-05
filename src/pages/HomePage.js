@@ -6,6 +6,7 @@ import GetStarted from '../components/GetStarted';
 import FeaturedStories from '../components/FeaturedStories';
 import HowItWorks from '../components/HowItWorks';
 import HeroSection from './HeroSection';
+import Login from '../components/Login';
 
 
 function HomePage() {
@@ -15,6 +16,7 @@ function HomePage() {
             <Navigation /> */}
             <main>
                 <HeroSection />
+                <Login />
                 {/* <Home /> */}                
                 <HomeInfo title='Create Imaginative Stories' content='Unleash creativity with our AI-powered story generator. Input your preferences or prompts, and watch as captivating stories come to life.' name='right' url='/imgs/info1.png' />
                 <HomeInfo title='Engage Young Minds' content='Spark the curiosity of young readers. Our stories cater to kids aged 6 to 16, offering a range of themes and adventures to captivate their minds.'  name='left' url='/imgs/info2.png' />

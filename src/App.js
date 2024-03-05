@@ -10,6 +10,7 @@ import FeaturedStories from './components/FeaturedStories';
 import HomePage from './pages/HomePage';
 import { Routing } from './Routing';
 // import info1 from 'src\imgs\info1.png';
+import firebaseApp from './firebase';
 
 function App() {
     return (

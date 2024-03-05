@@ -153,7 +153,7 @@ const HowItWorks = () => {
         const timerId = setInterval(() => {
             setSelectedItem((prevSelectedItem) => {
                 // Loop back to the first item when reaching the end
-                console.log(prevSelectedItem); // Log the actual value
+                // console.log(prevSelectedItem); // Log the actual value
                 return prevSelectedItem === listItems.length - 1 ? 0 : prevSelectedItem + 1;
             });
             setTimer(0);

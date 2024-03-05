@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom"
-import HomePage from "./pages/HomePage"
-import CombinedOptionsPage from "./pages/CombinedOptionsPage"
-import Story from "./pages/Story"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CombinedOptionsPage from "./pages/CombinedOptionsPage";
+import Story from "./pages/Story";
 
 export const Routing = () => {
     return (
@@ -12,5 +12,5 @@ export const Routing = () => {
                 <Route path="/story/:state" element={<Story />} />
             </Routes>
         </Router>
-    )
-}
+    );
+};

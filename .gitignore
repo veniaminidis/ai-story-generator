@@ -6,6 +6,9 @@
 .pnp.js
 /src/APIconfig.js
 
+# Ignore .env file
+.env
+
 # testing
 /coverage
 
