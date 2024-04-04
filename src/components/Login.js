@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
 import { auth } from '../firebase';
 import { NavLink, useNavigate } from 'react-router-dom'
+import Signup from './SignUp';
  
-const Login = () => {
+const Login = (props) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -24,13 +25,15 @@ const Login = () => {
         });
        
     }
+    const handleChange = () => {
+        props.changeFunc();
+    }
  
     return(
         <>
             <main >        
                 <section>
-                    <div>                                            
-                        <p> FocusApp </p>                       
+                    <div>                 
                                                        
                         <form>                                              
                             <div>
@@ -72,14 +75,14 @@ const Login = () => {
                        
                         <p className="text-sm text-white text-center">
                             No account yet? {' '}
-                            <NavLink to="/signup">
+                            <button onClick={handleChange}>
                                 Sign up
-                            </NavLink>
+                            </button>
                         </p>
                                                    
                     </div>
                 </section>
-            </main>
+            </main>            
         </>
     )
 }

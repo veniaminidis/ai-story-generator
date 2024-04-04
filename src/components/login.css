@@ -1,0 +1,108 @@
+.gradientBG {
+    max-width: 400px;
+    min-height: 600px;
+    margin: auto;
+    background-color: white;
+    
+    position: relative;
+    filter: drop-shadow(black 0px 0px 20px);
+    border-radius: 20px;
+    /* display: flex;
+    flex-direction: column;
+    transition: flex-direction 2s ease-in-out; */
+}
+
+.login {
+    flex-direction: column-reverse;
+}
+
+
+.info-container {
+    /* background: linear-gradient(#ff9300, #b96c00); */
+    z-index: 1;
+    color: white;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    /* flex-grow: 1; */
+    transition: 1s;
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+}
+
+.info {
+    background: linear-gradient(#4b345c, #201627);
+    /* background: linear-gradient(#ff9300, #b96c00); */
+    background-color: #201627;
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  color: #ffffff;
+  position: relative;
+  top: 0;
+  height: 600px;
+  width: 100%;
+  border-radius: 20px;
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+.signup .info {
+    transform: translateY(-50%);
+}
+
+.form-container {
+    /* background: linear-gradient(#4b345c, #201627); */
+    /* background: linear-gradient(#ff9300, #b96c00); */
+    background-color: white;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transition: 1s;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* flex-grow: 1; */
+}
+.signup .info-container {
+    transform: translateY(+100%);
+}
+.signup .form-container {
+    top: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.info-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* padding: 0 40px; */
+    text-align: center;
+    top: 0;
+    height: 50%;
+    width: 100%;
+    transform: translateY(0);
+    transition: transform 1s ease-in-out;
+  }
+  
+  .top-panel {
+    transform: translateY(0%);
+  }
+  
+  .signup .top-panel {
+    transform: translateY(-50%);
+  }
+  
+  .bottom-panel {
+    top: 50%;
+    transform: translateY(50%);
+  }
+  
+  .signup .bottom-panel {
+    transform: translateY(0);
+  }

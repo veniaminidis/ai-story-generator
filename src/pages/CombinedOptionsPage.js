@@ -321,7 +321,7 @@ class CombinedOptionsPage extends Component {
 
                 {/* <button onClick={this.handleGeneratePrompt}>Generate Story Prompt</button> */}
                 {generatedStory && (
-                    <Navigate to={"/home/story/" + (size)}  />
+                    <Navigate to={"/story/" + (size)}  />
                 )
                 }
                 {/* {generatedStory && (
